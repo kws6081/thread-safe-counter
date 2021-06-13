@@ -33,16 +33,6 @@ These semaphore routines can be implemented by multiple threads and semaphore ma
 sem\_wait(&c->m) returns right away when the value of semaphore is or higher and suspends action of the caller to wait for the subsequent post.	If there are multiple sem\_wait(&c->m) calls by threads, a waiting queue will be formed to line them up.  
 sem\_post(&c->m) simply increments the value of a semaphore and if there is a thread that needs to be woken up, sem\_post(&c->m) wakes one of those up.  
 
-<<<<<<< HEAD
-=======
-## posix vs tscounter, nonposix vs tscounter 
-![0.1M](https://github.com/kws6081/thread-safe-counter/blob/main/images/0.1M/1.png)
-![1M](https://github.com/kws6081/thread-safe-counter/blob/main/images/1M/4.png)
-The screencapture images shows the result of posix(semaphore according to POSIX standard), nonposix(based on sem1.c), and tscounter(given code).	
-2nd argument on the command line will be the loop count in the code.	
-The result of 100,000 loop counts shows that posix takes 1.4 ~ 1.5 times longer than tscounter and nonposix takes 10.6 ~ 12.4 times longer than tscounter.
-The result of 1,000,000 loop counts shows that posix takes 1.7 ~ 2.1 times longer than tscounter and nonposix takes 18.3 ~ 20.3 times longer than tscounter.	
->>>>>>> 7b86efb8049b63ad00d62fe1bdf9ba59bcc597ec
 
 Executable file posix and nonposix contains binary semaphore.  
 In posix, if a thread(p1) calls sem\_wait(&c->m), the value of a semaphore decreases. Since the initial value is set to 1, the result becomes 0. And because the value is not negative, thread doesn't wait and continues, which leads to critical section. If another thread(p2) tries to interrupt the thread, it will have to pass through its own sem\_wait(&c->m). This will make the value -1 and the thread(p2) will sleep.
