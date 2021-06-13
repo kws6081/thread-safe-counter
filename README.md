@@ -42,6 +42,8 @@ sem\_post(&c->m) from thread p1 wakes up thread p2, and p2 becomes ready state a
 As we can see, race condition will not occur, resulting a fair concurrency by making the same result as lock.
 
 ## posix vs tscounter, nonposix vs tscounter 
+![0.1M](https://github.com/kws6081/thread-safe-counter/blob/main/images/0.1M/1.png)
+![1M](https://github.com/kws6081/thread-safe-counter/blob/main/images/1M/4.png)
 The screencapture images shows the result of posix(semaphore according to POSIX standard), nonposix(based on sem1.c), and tscounter(given code).	
 2nd argument on the command line will be the loop count in the code.	
 The result of 100,000 loop counts shows that posix takes 1.4 ~ 1.5 times longer than tscounter and nonposix takes 10.6 ~ 12.4 times longer than tscounter.
