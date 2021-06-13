@@ -19,6 +19,9 @@ gcc -o posix binary\_POSIX.c -lpthread && gcc -o nonposix binary\_NONPOSIX.c -lp
 
 3. Run
 ```
+time ./posix 100000  
+time ./nonposix 100000  
+time ./tscounter 100000  
 time ./posix 1000000  
 time ./nonposix 1000000  
 time ./tscounter 1000000  
