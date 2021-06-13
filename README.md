@@ -5,7 +5,7 @@ Project#2
 ## Development Environment  
 Ubuntu 18.04  
 
-## How to Run aShell
+## How to Run
 1. Download  
 ```
 git clone https://github.com/kws6081/thread-safe-counter  
